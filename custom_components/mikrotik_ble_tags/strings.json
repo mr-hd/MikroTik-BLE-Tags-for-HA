@@ -1,0 +1,18 @@
+{
+    "title": "MikroTik BLE Tags",
+    "config": {
+    "step": {
+        "user": {
+            "title": "Add MikroTik tag",
+            "description": "Enter the tag's Bluetooth MAC address and a friendly name.",
+            "data": {
+                "address": "MAC address",
+                "name": "Name"
+        }
+    }
+        },
+        "error": {
+            "invalid_address": "Invalid MAC address format."
+        }
+    }
+}
