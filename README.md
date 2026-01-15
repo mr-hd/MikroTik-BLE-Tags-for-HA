@@ -42,6 +42,17 @@ You can verify this using:
 ## Setting up the integration
 
 ### 1. Add the integration
+
+At the moment, this integration must be installed as a **custom repository** via HACS.
+
+1. Open **HACS**
+2. Go to **Integrations**
+3. Open the menu (⋮) → **Custom repositories**
+4. Add this repository URL
+5. Install the integration
+6. Restart Home Assistant
+
+After installation, add the integration via:
 Go to:
 `Settings → Devices & Services → Add Integration → MikroTik BLE Tags`  
 
@@ -59,7 +70,7 @@ Enter:
 
 ---
 
-### 3. Finish
+### 3. Verify device and entities
 After submitting the form:
 - One **device** will be created
 - Multiple **entities** will appear with the reported parameters
@@ -68,7 +79,7 @@ After submitting the form:
 
 ---
 
-## Not-obvious features
+## Non-obvious features
 
 ### Temperature unit conversion
 Temperature is **natively converted** between °C and °F according to Home Assistant settings:
