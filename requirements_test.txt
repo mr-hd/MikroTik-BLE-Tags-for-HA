@@ -1,0 +1,6 @@
+homeassistant==2026.10.2
+pytest-homeassistant-custom-component==0.13.373
+ruff==0.17.1
+aiousbwatcher==1.1.2
+serialx==1.11.0
+dbus-fast==5.0.22
