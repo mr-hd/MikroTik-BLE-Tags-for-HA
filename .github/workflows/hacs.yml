@@ -3,17 +3,16 @@ name: HACS
 on:
   push:
   pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   hacs:
-    name: HACS Validation
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v4
-
-      - name: HACS Action
-        uses: hacs/action@main
+      - uses: actions/checkout@v4
+      - uses: hacs/action@main
         with:
           category: integration
-          ignore: brands

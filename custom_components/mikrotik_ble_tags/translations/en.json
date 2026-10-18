@@ -1,18 +1,63 @@
 {
-    "title": "MikroTik BLE Tags",
-    "config": {
+  "title": "MikroTik BLE Tags",
+  "config": {
+    "flow_title": "{name} ({address})",
     "step": {
-        "user": {
-            "title": "Add MikroTik tag",
-            "description": "Enter the tag's Bluetooth MAC address and a friendly name.",
-            "data": {
-                "address": "MAC address",
-                "name": "Name"
+      "user": {
+        "title": "Add MikroTik tag",
+        "description": "Enter the tag's Bluetooth MAC address and a friendly name. The tag must be in range and broadcasting unencrypted MikroTik v1 telemetry.",
+        "data": {
+          "address": "MAC address",
+          "name": "Name"
         }
-    }
-        },
-        "error": {
-            "invalid_address": "Invalid MAC address format."
+      },
+      "bluetooth_confirm": {
+        "title": "Set up MikroTik tag",
+        "description": "Set up the tag at {address}. Choose a friendly name.",
+        "data": {
+          "name": "Name"
         }
+      }
+    },
+    "error": {
+      "invalid_address": "Enter a MAC address such as AA:BB:CC:DD:EE:FF.",
+      "no_scanner": "No Bluetooth scanner is available. Configure Bluetooth or a Bluetooth proxy first.",
+      "not_found": "No MikroTik telemetry was received. Move the tag into range and enable periodic unencrypted MikroTik-format advertisements.",
+      "unsupported_packet": "This device is not broadcasting supported MikroTik v1 telemetry.",
+      "encrypted": "Encrypted telemetry is not supported. Disable packet encryption in MikroTik Beacon Manager."
+    },
+    "abort": {
+      "already_configured": "This tag is already configured.",
+      "unsupported_packet": "This is not a supported MikroTik v1 telemetry packet.",
+      "encrypted": "Encrypted telemetry is not supported. Disable packet encryption in MikroTik Beacon Manager before adding this tag."
     }
+  },
+  "entity": {
+    "sensor": {
+      "rssi": {
+        "name": "RSSI"
+      },
+      "raw": {
+        "name": "Raw"
+      },
+      "temperature": {
+        "name": "Temperature"
+      },
+      "battery": {
+        "name": "Battery"
+      },
+      "uptime": {
+        "name": "Uptime"
+      },
+      "acc_x": {
+        "name": "Acc X"
+      },
+      "acc_y": {
+        "name": "Acc Y"
+      },
+      "acc_z": {
+        "name": "Acc Z"
+      }
+    }
+  }
 }

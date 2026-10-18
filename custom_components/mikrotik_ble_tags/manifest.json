@@ -1,11 +1,25 @@
 {
-    "domain": "mikrotik_ble_tags",
-    "name": "MikroTik BLE Tags",
-    "codeowners": ["@mr-hd"],
-    "config_flow": true,
-    "dependencies": ["bluetooth"],
-    "documentation": "https://github.com/mr-hd/MikroTik-BLE-Tags-for-HA/blob/main/README.md",
-    "iot_class": "local_push",
-    "issue_tracker": "https://github.com/mr-hd/MikroTik-BLE-Tags-for-HA/issues",
-    "version": "1.0.0"
+  "domain": "mikrotik_ble_tags",
+  "name": "MikroTik BLE Tags",
+  "bluetooth": [
+    {
+      "connectable": false,
+      "manufacturer_data_start": [
+        1
+      ],
+      "manufacturer_id": 2383
+    }
+  ],
+  "codeowners": [
+    "@mr-hd"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "bluetooth"
+  ],
+  "documentation": "https://github.com/mr-hd/MikroTik-BLE-Tags-for-HA",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/mr-hd/MikroTik-BLE-Tags-for-HA/issues",
+  "version": "1.1.0"
 }
