@@ -1,0 +1,13 @@
+homeassistant==2025.5.3
+pytest-homeassistant-custom-component==0.13.246
+ruff==0.17.1
+pycares==4.11.0
+bleak==0.22.3
+bleak-retry-connector==3.9.0
+bluetooth-adapters==0.21.4
+bluetooth-auto-recovery==1.5.1
+bluetooth-data-tools==1.28.1
+dbus-fast==2.43.0
+habluetooth==3.48.2
+aiousbwatcher==1.1.1
+pyserial==3.5

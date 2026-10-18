@@ -3,14 +3,24 @@ name: hassfest
 on:
   push:
   pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   hassfest:
     name: Hassfest
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v4
-
-      - name: Run hassfest
-        uses: home-assistant/actions/hassfest@master
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+      - name: Stage integration with its domain directory
+        run: python scripts/prepare_checks.py "$RUNNER_TEMP/mikrotik-ble-checks"
+      - name: Run official Hassfest image
+        run: >-
+          docker run --rm
+          -v "$RUNNER_TEMP/mikrotik-ble-checks:/github/workspace"
+          ghcr.io/home-assistant/hassfest

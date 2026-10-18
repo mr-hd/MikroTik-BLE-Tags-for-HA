@@ -1,0 +1,35 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python: "3.13"
+            requirements: requirements_test_minimum.txt
+          - python: "3.14"
+            requirements: requirements_test.txt
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - run: python -m pip install -r ${{ matrix.requirements }}
+      - run: ruff check .
+      - run: ruff format --check .
+      - name: Stage integration for Home Assistant tests
+        run: python scripts/prepare_checks.py "$RUNNER_TEMP/mikrotik-ble-checks"
+      - name: Test staged integration
+        working-directory: ${{ runner.temp }}/mikrotik-ble-checks
+        run: python -m pytest --cov=custom_components.mikrotik_ble_tags --cov-report=term-missing
